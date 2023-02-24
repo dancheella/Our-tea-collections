@@ -1,0 +1,119 @@
+.navbar-brand {
+    padding-top: 6px;
+    padding-left: 6px;
+}
+
+.navbar-nav {
+    padding-top: 2px;
+}
+
+.input {
+    max-width: 196px;
+    height: 36px;
+}
+
+.btn {
+    --bs-btn-padding-x: 26px;
+    --bs-btn-padding-y: 5px;
+}
+
+.slick-next {
+    width: 41px;
+    height: 40px;
+    right: 12px;
+}
+
+.slick-next:before {
+    content: url("../images/right.png");
+}
+
+.slick-prev {
+    z-index: 2;
+    width: 41px;
+    height: 40px;
+    left: 12px;
+}
+
+.slick-prev:before {
+    content: url("../images/left.png");
+}
+
+img {
+    max-width: 100%;
+}
+
+.btn-primary {
+    width: 170px;
+}
+
+.card-text {
+    margin-bottom: 27px;
+}
+
+p {
+    margin-bottom: 0;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, .ui-button, html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:active {
+    border: 1px solid transparent;
+}
+
+.ui-corner-all, .ui-corner-bottom, .ui-corner-right, .ui-corner-br {
+    border: 1px solid transparent;
+}
+
+.ui-accordion .ui-accordion-header {
+    border-radius: 10px;
+    display: block;
+    cursor: pointer;
+    position: relative;
+    margin-bottom: 16px;
+    padding: 25px;
+    background: #076BFF;
+    font-family: 'Arial', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 18px;
+    color: #FFFFFF;
+}
+
+.ui-accordion .ui-accordion-header span {
+    position: absolute;
+    right: 30px;
+    top: 33px;
+}
+
+.ui-accordion .ui-accordion-header-active span {
+    position: absolute;
+    right: 30px;
+    top: 27px;
+}
+
+.ui-accordion .ui-accordion-content {
+    padding: 0 2.2em 1.7em 2.2em;
+}
+
+/* Значок для свернутой панели */
+.ui-icon-triangle-1-e {
+    content: url("../images/vector.png");
+    width: 20px;
+    height: 11px;
+}
+
+/* Значок для развернутой панели */
+.ui-icon-triangle-1-s {
+    content: url("../images/vector.png");
+    transform: rotate(180deg);
+    width: 20px;
+    height: 11px;
+}
+
+.ui-accordion .ui-accordion-header-active span {
+    top: 33px;
+}
+
+.ui-state-active .ui-icon, .ui-icon {
+    background-image: none;
+}
+
