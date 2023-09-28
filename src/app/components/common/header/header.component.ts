@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
+import {Component} from '@angular/core';
+import {FormBuilder, FormGroup} from '@angular/forms';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -18,7 +18,9 @@ export class HeaderComponent {
 
   onSearch() {
     const query = this.searchForm.get('query')?.value;
-    this.router.navigate(['/catalog'], { queryParams: { search: query } });
+    if (this.router.url === '/catalog') {
+      this.router.navigate(['/catalog'], {queryParams: {search: query}});
+    }
   }
 
   resetSearch() {
