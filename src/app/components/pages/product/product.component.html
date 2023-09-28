@@ -1,0 +1,16 @@
+<section id="catalog">
+  <div class="container my-5">
+    <h1 class="text-center mb-4">Описание чайной коллекции</h1>
+    <div class="d-flex align-items-center justify-content-between gap-5 gy-4 d-sm-flex">
+      <a  href="{{product.image}}">
+        <img src="{{product.image}}">
+      </a>
+      <div class="d-sm-flex flex-sm-column justify-content-between gap-4">
+        <h5 class="card-title">{{product.title}}</h5>
+        <p class="card-title">Цена: {{product.price}}</p>
+        <p class="text-break">{{product.description}}</p>
+        <a (click)="addToTitle(product.title)" class="btn btn-primary hvr-float-shadow">Купить</a>
+      </div>
+    </div>
+  </div>
+</section>

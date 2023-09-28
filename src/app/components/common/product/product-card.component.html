@@ -1,0 +1,9 @@
+<div class="card">
+  <a class="card-image" href="{{product.image}}">
+    <img src="{{product.image}}">
+  </a>
+  <div class="card-body d-sm-flex flex-sm-column justify-content-between">
+    <h5 class="card-title">{{product.title}}</h5>
+    <a [routerLink]="['../catalog', product.id]" class="btn btn-primary hvr-float-shadow">Подробнее</a>
+  </div>
+</div>
