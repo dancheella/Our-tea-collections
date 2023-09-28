@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ProductService } from '../../../services/product.service';
 
 @Component({
   selector: 'app-header',
@@ -11,7 +10,7 @@ import { ProductService } from '../../../services/product.service';
 export class HeaderComponent {
   searchForm: FormGroup;
 
-  constructor(private productService: ProductService, private router: Router, private fb: FormBuilder) {
+  constructor(private router: Router, private fb: FormBuilder) {
     this.searchForm = this.fb.group({
       query: ['']
     });
@@ -23,7 +22,9 @@ export class HeaderComponent {
   }
 
   resetSearch() {
-    this.searchForm.get('query')?.setValue('');
-    this.router.navigate(['/catalog']);
+    if (this.router.url === '/catalog' || this.router.url.startsWith('/catalog?')) {
+      this.searchForm.get('query')?.setValue('');
+      this.router.navigate(['/catalog']);
+    }
   }
 }
