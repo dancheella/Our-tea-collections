@@ -7,13 +7,20 @@ import {Router} from '@angular/router';
   templateUrl: './header.component.html',
   styleUrls: []
 })
+
 export class HeaderComponent {
   searchForm: FormGroup;
+  isCatalogPage: boolean = false;
 
   constructor(private router: Router, private fb: FormBuilder) {
     this.searchForm = this.fb.group({
       query: ['']
     });
+
+    this.router.events
+      .subscribe(() => {
+        this.isCatalogPage = this.router.url === '/catalog' || this.router.url.startsWith('/catalog?');
+      });
   }
 
   onSearch() {

@@ -17,7 +17,7 @@
             <a class="nav-link" routerLink="catalog">Каталог</a>
           </li>
         </ul>
-        <form [formGroup]="searchForm" class="d-flex gap-3" role="search" (ngSubmit)="onSearch()">
+        <form *ngIf="isCatalogPage" [formGroup]="searchForm" class="d-flex gap-3" role="search" (ngSubmit)="onSearch()">
           <input formControlName="query" class="input form-control me-2" type="search" placeholder="Поиск чая" aria-label="Search">
           <button class="btn btn-outline-primary hvr-pulse" type="submit">Найти</button>
           <button class="btn btn-outline-secondary hvr-pulse" type="button" (click)="resetSearch()">Сбросить</button>
