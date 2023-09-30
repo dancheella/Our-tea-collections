@@ -1,6 +1,7 @@
-import {Component} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {Router} from '@angular/router';
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-header',
@@ -8,19 +9,26 @@ import {Router} from '@angular/router';
   styleUrls: []
 })
 
-export class HeaderComponent {
+export class HeaderComponent implements OnInit, OnDestroy {
   searchForm: FormGroup;
   isCatalogPage: boolean = false;
+  private subscriptionRoute: Subscription | null = null;
 
   constructor(private router: Router, private fb: FormBuilder) {
     this.searchForm = this.fb.group({
       query: ['']
     });
+  }
 
-    this.router.events
+  ngOnInit() {
+    this.subscriptionRoute = this.router.events
       .subscribe(() => {
         this.isCatalogPage = this.router.url === '/catalog' || this.router.url.startsWith('/catalog?');
       });
+  }
+
+  ngOnDestroy() {
+    this.subscriptionRoute?.unsubscribe();
   }
 
   onSearch() {

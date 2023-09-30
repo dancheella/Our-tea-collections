@@ -1,19 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import { TitleService } from "../../../services/title.service";
 import { FormBuilder, Validators } from "@angular/forms";
 import { CustomPhone } from "../../../shared/custom-phone";
 import { OrderService } from "../../../services/order.service";
-import {tap} from "rxjs";
+import {Subscription, tap} from "rxjs";
 
 @Component({
   selector: 'app-order',
   templateUrl: './order.component.html',
   styleUrls: ['./order.component.scss']
 })
-export class OrderComponent implements OnInit {
+export class OrderComponent implements OnInit, OnDestroy {
   formVisible = true; // видимость формы
   errorMessageVisible = false; // видимость сообщения об ошибке
   isSubmitting = false; // кнопка
+  private subscriptionOrder: Subscription | null = null;
 
 
   checkoutForm = this.fb.group({
@@ -38,10 +39,14 @@ export class OrderComponent implements OnInit {
     }
   }
 
+  ngOnDestroy() {
+    this.subscriptionOrder?.unsubscribe();
+  }
+
   createOrder() {
     this.isSubmitting = true;
 
-    this.orderService.createOrder({
+    this.subscriptionOrder =  this.orderService.createOrder({
       name: this.checkoutForm.get('name')?.value || '',
       last_name: this.checkoutForm.get('last_name')?.value || '',
       phone: this.checkoutForm.get('phone')?.value || '',
@@ -60,6 +65,7 @@ export class OrderComponent implements OnInit {
         next: (response) => {
           if (response.success && !response.message) {
             this.formVisible = false;
+            this.errorMessageVisible = false;
           } else {
             this.errorMessageVisible = true;
             setTimeout(() => {
