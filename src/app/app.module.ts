@@ -1,38 +1,33 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { SlickCarouselModule } from 'ngx-slick-carousel';
-import { HeaderComponent } from './components/common/header/header.component';
-import { FooterComponent } from './components/common/footer/footer.component';
-import { MainComponent } from './components/pages/main/main.component';
-import { CatalogComponent } from './components/pages/catalog/catalog.component';
-import { OrderComponent } from './components/pages/order/order.component';
-import { ProductCardComponent } from './components/common/product/product-card.component';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {SlickCarouselModule} from 'ngx-slick-carousel';
 import {HttpClientModule} from "@angular/common/http";
-import { ProductComponent } from './components/pages/product/product.component';
 import {ReactiveFormsModule} from "@angular/forms";
+import {ProductsModule} from "./views/products/products.module";
+import {MainModule} from "./views/main/main.module";
+import {OrderModule} from "./views/order/order.module";
+import {SharedModule} from "./shared/shared.module";
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    FooterComponent,
-    MainComponent,
-    CatalogComponent,
-    OrderComponent,
-    ProductCardComponent,
-    ProductComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     SlickCarouselModule,
     HttpClientModule,
-    ReactiveFormsModule
+    MainModule,
+    OrderModule,
+    ProductsModule,
+    SharedModule,
+    ReactiveFormsModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

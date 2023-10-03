@@ -1,0 +1,73 @@
+<section>
+  <div class="container my-5" >
+    <div class="slider">
+      <div>
+        <img src="../../../assets/images/carousel/Banner.png" alt="Banner">
+      </div>
+      <div>
+        <img src="../../../assets/images/carousel/Banner2.png" alt="Banner">
+      </div>
+      <div>
+        <img src="../../../assets/images/carousel/Banner3.png" alt="Banner">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2 class="text-center mb-5">Ответы на часто задаваемые вопросы</h2>
+    <div class="col-lg-8 m-auto mb-5">
+      <div id="accordion">
+        <h3>Собираете ли вы подарочные боксы?</h3>
+        <div>
+          <p>
+            Да, у нас есть такая услуга. Мы можем собрать подарочный бокс на любой вкус, объем и стоимость!
+          </p>
+        </div>
+        <h3>Сколько у вас разновидностей чая?</h3>
+        <div>
+          <p>
+            У нас 6 основных сортов чая: зеленый, белый, желтый, улун, черный и пуэр. Они различаются
+            по степени ферментации — то есть насколько сильно окислилось сырье перед сушкой.
+          </p>
+        </div>
+        <h3>В какой срок осуществляется доставка?</h3>
+        <div>
+          <p>
+            В течение десяти дней со дня приема груза для перевозки при перевозках в городском и пригородном
+            сообщениях.
+          </p>
+        </div>
+        <h3>У вас обновляется ассортимент?</h3>
+        <div>
+          <p>
+            Обновление всех категорий товаров - один, два раза в неделю. Частичное
+            добавление товара - каждый день.
+          </p>
+        </div>
+        <h3>Какого объема у вас пачки чая?</h3>
+        <div>
+          <p>
+            Объем пачки небольшой, чай испортиться не успеет (при условии, что его правильно хранят), а
+            покупатель
+            может визуально оценить качество листа. Дома из такой пачки чай лучше пересыпать в банку.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<ng-template #popup>
+  <section>
+      <div class="modal-content">
+        <div class="modal-body">
+          <p>Посмотрите наши чайные коллекции</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" (click)="redirectToCatalog()">Смотреть</button>
+        </div>
+      </div>
+  </section>
+</ng-template>
